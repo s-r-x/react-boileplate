@@ -1,5 +1,5 @@
 import React from 'react';
-import './Index.less';
+import './index.less';
 import reactLogo from '../../images/react.svg';
 
 

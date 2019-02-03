@@ -9,6 +9,7 @@ const config = {
     port: 8080,
     open: true,
     hot: true,
+    overlay: true,
   },
   module: {
     rules: [
