@@ -2,6 +2,7 @@ import React from 'react';
 import './Index.less';
 import reactLogo from '../../images/react.svg';
 
+
 export default () => (
   <main className="main">
     <img src={reactLogo} alt="" />

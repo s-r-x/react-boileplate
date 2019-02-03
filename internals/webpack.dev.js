@@ -1,16 +1,21 @@
 const merge = require('webpack-merge');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin'); 
 const common = require('./webpack.common');
+const webpack = require('webpack');
+
 
 const config = {
   devtool: 'cheap-module-source-map',
-  watch: true,
+  devServer: {
+    port: 8080,
+    open: true,
+    hot: true,
+  },
   module: {
     rules: [
       {
         test: /(\.css)|(\.less)$/,
         use: [
-          {loader: MiniCssExtractPlugin.loader},
+          'style-loader',
           'css-loader',
           'postcss-loader',
           'less-loader',
@@ -20,10 +25,7 @@ const config = {
     ],
   },
   plugins: [                                                                                                                                                           
-    new MiniCssExtractPlugin({                                                                                                                                         
-      filename: '[name].css',                                                                                                                                          
-      chunkFilename: '[id].css',                                                                                                                                       
-    }),
+    new webpack.HotModuleReplacementPlugin()
   ],
 };
 
