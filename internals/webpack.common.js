@@ -1,14 +1,19 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { FILE_REGEX } = require('./constants');
 
 const { SRC, DST } = require('./constants');
+
+const isProd = process.env.NODE_ENV === 'production';
 
 module.exports = {
   entry: {
     app: path.join(SRC, 'index.js'),
   },
   output: {
-    filename: '[name].js',
+    filename: isProd ? '[name].[chunkhash:8].js' : '[name].js',
+    chunkFilename: isProd ? '[name].[chunkhash:8].js' : '[id].js]',
+
     path: DST,
   },
   module: {
@@ -22,16 +27,24 @@ module.exports = {
             presets: [
               [ 
                 '@babel/preset-env', 
-                { 'useBuiltIns': 'usage' }
+                { 'useBuiltIns': 'usage', modules: false, }
               ],
               '@babel/preset-react', 
             ],
-          }
+            plugins: [
+              '@babel/plugin-syntax-dynamic-import',
+            ],
+          },
         }
       },
       {
-        test: /\.(woff|woff2|otf|ttf|eot|svg|png|jpg|jpeg|gif)(\?v=\d+\.\d+\.\d+)?$/i,
-        use: ['file-loader'],
+        test: FILE_REGEX,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: "[name].[hash:8].[ext]", 
+          }
+        }
       },
     ]
   },

@@ -1,32 +1,32 @@
 const merge = require('webpack-merge');
 const common = require('./webpack.common');
 const webpack = require('webpack');
-
+const path = require('path');
+const notifier = require('./parts/notifier');
+const devServer = require('./parts/devServer');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+const styleLoaders = require('./parts/styleLoaders');
+const { STYLE_REGEX } = require('./constants');
 
 const config = {
-  devtool: 'cheap-module-source-map',
-  devServer: {
-    port: 8080,
-    open: true,
-    hot: true,
-    overlay: true,
-  },
+  devtool: 'cheap-module-eval-source-map',
+  devServer,
   module: {
     rules: [
       {
-        test: /(\.css)|(\.less)$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'postcss-loader',
-          'less-loader',
-        ],
+        test: STYLE_REGEX,
+        use: [ 'style-loader', ...styleLoaders ]
       },
 
     ],
   },
   plugins: [                                                                                                                                                           
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.WatchIgnorePlugin([
+      path.join(__dirname, '..', 'node_modules'),
+    ]),
+    new webpack.HotModuleReplacementPlugin(),
+    notifier,
+    new ProgressBarPlugin()
   ],
 };
 
