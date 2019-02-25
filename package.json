@@ -5,7 +5,7 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "start": "NODE_ENV=development webpack-dev-server --mode=development --config internals/webpack.dev.js",
+    "start": "NODE_ENV=development webpack-dev-server --mode=development --client-log-level warning --config internals/webpack.dev.js",
     "build": "NODE_ENV=production webpack --mode=production --config internals/webpack.prod.js"
   },
   "keywords": [],
