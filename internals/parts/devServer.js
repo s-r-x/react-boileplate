@@ -7,4 +7,5 @@ module.exports =  {
   overlay: true,
   contentBase: ASSETS_PATH,
   host: process.env.HOST || '0.0.0.0',
+  historyApiFallback: true,
 };
