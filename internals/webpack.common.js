@@ -12,7 +12,7 @@ module.exports = {
   },
   output: {
     filename: isProd ? '[name].[chunkhash:8].js' : '[name].js',
-    chunkFilename: isProd ? '[name].[chunkhash:8].js' : '[id].js]',
+    chunkFilename: isProd ? '[name].[chunkhash:8].js' : '[id].js',
 
     path: DST,
   },
