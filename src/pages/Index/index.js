@@ -1,19 +1,18 @@
 import React from 'react';
-import './index.less';
+import cls from './index.css';
 import reactLogo from '../../images/react.svg';
 import { connect } from'react-redux';
 import { inc, dec } from '../../actions/creators';
 
-
 const IndexPage = ({ counter, inc, dec }) => (
-  <main className="main">
-    <img src={reactLogo} alt="" />
+  <main className={cls.main}>
+    <img src={reactLogo} alt="React logo" />
     <h1>Create something rad</h1>
     <h2>(or just a tiny counter)</h2>
-    <div className="counter-container">
-      <button className="plus" onClick={inc}>+</button>
-      <span className="counter">{counter}</span>
+    <div className={cls.counterContainer}>
       <button className="minus" onClick={dec}>-</button>
+      <span className="counter">{counter}</span>
+      <button className="plus" onClick={inc}>+</button>
     </div>
   </main>
 )
