@@ -16,6 +16,11 @@ module.exports = {
 
     path: DST,
   },
+  resolve: {
+    alias: {
+      '@': SRC,  
+    },
+  },
   module: {
     rules: [
       {
