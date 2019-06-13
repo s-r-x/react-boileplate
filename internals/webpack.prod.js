@@ -1,7 +1,6 @@
 const merge = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const notifier = require('./parts/notifier');
 const styleLoaders = require('./parts/styleLoaders');
@@ -9,6 +8,7 @@ const common = require('./webpack.common');
 const { STYLE_REGEX, DST, ASSETS_PATH } = require('./constants');
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 const config = {
   devtool: false,
@@ -52,11 +52,7 @@ const config = {
       name: 'manifest',
     },
     minimizer: [
-      new UglifyJsPlugin({
-        cache: true,
-        parallel: true,
-        sourceMap: true,
-      }),
+      new TerserPlugin(),
       new OptimizeCSSAssetsPlugin({}),
     ],
   },
