@@ -22,7 +22,7 @@ const IndexPage = ({counter, inc, dec}) => (
 );
 
 const mapStateToProps = ({counter}) => ({
-  counter,
+  counter: counter.counter,
 });
 const mapDispatchToProps = dispatch => ({
   inc: () => dispatch(inc()),
