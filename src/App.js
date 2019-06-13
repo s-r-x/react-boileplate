@@ -1,13 +1,7 @@
-import './App.less';
-import React, { PureComponent } from 'react';
-import Router from './components/Router';
+import '@/styles/index.less';
+import React from 'react';
+import Router from '@/containers/Router';
 
-class App extends PureComponent {
-  render() {
-    return (
-      <Router/>
-    )
-  }
-}
+const App = () => <Router />;
 
 export default App;

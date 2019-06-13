@@ -1,8 +1,8 @@
 import React from 'react';
 import cls from './index.less';
-import reactLogo from '../../images/react.svg';
+import reactLogo from '@/images/react.svg';
 import {connect} from 'react-redux';
-import {inc, dec} from '../../actions/creators';
+import {inc, dec} from '@/actions/creators';
 
 const IndexPage = ({counter, inc, dec}) => (
   <main className={cls.main}>
