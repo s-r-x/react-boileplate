@@ -1,0 +1,19 @@
+{
+  "extends": ["airbnb", "prettier"],
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "./internals/webpack.common.js"
+      }
+    }
+  },
+  "rules": {
+    "react/jsx-filename-extension": [1, {"extensions": [".js", ".jsx"]}],
+    "react/prop-types": [0],
+    "no-shadow": "off",
+    "no-underscore-dangle": [0]
+  },
+  "env": {
+    "browser": true
+  }
+}

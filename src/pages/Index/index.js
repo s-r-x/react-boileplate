@@ -10,11 +10,11 @@ const IndexPage = ({counter, inc, dec}) => (
     <h1>Create something rad</h1>
     <h2>(or just a tiny counter)</h2>
     <div className={cls.counterContainer}>
-      <button className="minus" onClick={dec}>
+      <button type="button" className="minus" onClick={dec}>
         -
       </button>
       <span className="counter">{counter}</span>
-      <button className="plus" onClick={inc}>
+      <button type="button" className="plus" onClick={inc}>
         +
       </button>
     </div>
