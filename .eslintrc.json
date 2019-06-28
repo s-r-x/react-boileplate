@@ -1,5 +1,7 @@
 {
-  "extends": ["airbnb", "prettier"],
+  "parser": "babel-eslint",
+  "extends": ["plugin:flowtype/recommended", "airbnb", "prettier"],
+  "plugins": ["flowtype"],
   "settings": {
     "import/resolver": {
       "webpack": {

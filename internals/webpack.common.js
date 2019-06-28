@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {FILE_REGEX} = require('./constants');
-
+const FlowWebpackPlugin = require('flow-webpack-plugin');
 const {SRC, DST} = require('./constants');
 
 const isProd = process.env.NODE_ENV === 'production';
@@ -33,6 +33,7 @@ module.exports = {
               presets: [
                 ['@babel/preset-env', {useBuiltIns: 'usage', modules: false}],
                 '@babel/preset-react',
+                '@babel/preset-flow',
               ],
               plugins: [
                 '@babel/plugin-syntax-dynamic-import',
@@ -63,5 +64,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.join(SRC, 'index.html'),
     }),
+    new FlowWebpackPlugin(),
   ],
 };
