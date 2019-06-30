@@ -3,27 +3,26 @@ import React from 'react';
 import cls from './index.less';
 import reactLogo from '@/images/react.svg';
 import {connect} from 'react-redux';
-import {inc, dec} from '@/actions/creators';
+import {asyncInc, asyncDec} from '@/actions/counter';
 
 type Props = {
   counter: number,
-  inc: Function,
-  dec: Function,
+  asyncInc: Function,
+  asyncDec: Function,
 };
-
 const IndexPage = (props: Props) => {
-  const {counter, inc, dec} = props;
+  const {counter, asyncDec, asyncInc} = props;
   return (
     <main className={cls.main}>
       <img src={reactLogo} alt="React logo" />
       <h1>Create something rad</h1>
       <h2>(or just a tiny counter)</h2>
       <div className={cls.counterContainer}>
-        <button type="button" className="minus" onClick={dec}>
+        <button type="button" className="minus" onClick={asyncDec}>
           -
         </button>
         <span className="counter">{counter}</span>
-        <button type="button" className="plus" onClick={inc}>
+        <button type="button" className="plus" onClick={asyncInc}>
           +
         </button>
       </div>
@@ -32,11 +31,11 @@ const IndexPage = (props: Props) => {
 };
 
 const mapStateToProps = ({counter}) => ({
-  counter: counter.counter,
+  counter,
 });
 const mapDispatchToProps = dispatch => ({
-  inc: () => dispatch(inc()),
-  dec: () => dispatch(dec()),
+  asyncInc: () => dispatch(asyncInc()),
+  asyncDec: () => dispatch(asyncDec()),
 });
 export default connect(
   mapStateToProps,

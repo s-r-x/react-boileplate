@@ -5,7 +5,7 @@
   "settings": {
     "import/resolver": {
       "webpack": {
-        "config": "./internals/webpack.common.js"
+        "config": "./.internals/webpack.common.js"
       }
     }
   },

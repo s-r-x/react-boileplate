@@ -1,17 +1,14 @@
-import * as _ from '../actions/constants';
+import {INC, DEC} from '@/constants/counter';
 
-const initialState = {
-  counter: 0,
-};
-function rootReducer(state = initialState, action) {
-  switch (action.type) {
-    case _.INC:
-      return {...state, counter: state.counter + 1};
-    case _.DEC:
-      return {...state, counter: Math.max(0, state.counter - 1)};
+const initialState = 0;
+
+export default (state = initialState, {type}) => {
+  switch (type) {
+    case INC:
+      return state + 1;
+    case DEC:
+      return Math.max(0, state - 1);
     default:
       return state;
   }
-}
-
-export default rootReducer;
+};

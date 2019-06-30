@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {FILE_REGEX} = require('./constants');
 const FlowWebpackPlugin = require('flow-webpack-plugin');
 const {SRC, DST} = require('./constants');
+const alias = require('./aliases');
 
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -17,9 +18,7 @@ module.exports = {
     path: DST,
   },
   resolve: {
-    alias: {
-      '@': SRC,
-    },
+    alias,
   },
   module: {
     rules: [
