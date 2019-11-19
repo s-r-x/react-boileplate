@@ -1,8 +1,9 @@
 import {INC, DEC} from '@/constants/counter';
+import {IAction} from '@/actions/counter';
 
 const initialState = 0;
 
-export default (state = initialState, {type}) => {
+export default (state = initialState, {type}: IAction) => {
   switch (type) {
     case INC:
       return state + 1;

@@ -1,15 +1,15 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {FILE_REGEX} = require('./constants');
-const FlowWebpackPlugin = require('flow-webpack-plugin');
 const {SRC, DST} = require('./constants');
 const alias = require('./aliases');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 const isProd = process.env.NODE_ENV === 'production';
 
 module.exports = {
   entry: {
-    app: path.join(SRC, 'index.js'),
+    app: path.join(SRC, 'index.tsx'),
   },
   output: {
     filename: isProd ? '[name].[chunkhash:8].js' : '[name].js',
@@ -19,31 +19,18 @@ module.exports = {
   },
   resolve: {
     alias,
+    extensions: ['.ts', '.tsx', '.js'],
   },
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(ts)(x?)$/,
         exclude: /(node_modules|bower_components)/,
         use: [
           {
-            loader: 'babel-loader',
+            loader: 'ts-loader',
             options: {
-              presets: [
-                ['@babel/preset-env', {useBuiltIns: 'usage', modules: false}],
-                '@babel/preset-react',
-                '@babel/preset-flow',
-              ],
-              plugins: [
-                '@babel/plugin-syntax-dynamic-import',
-                '@babel/plugin-proposal-class-properties',
-              ],
-            },
-          },
-          {
-            loader: 'eslint-loader',
-            options: {
-              emitWarning: true,
+              transpileOnly: true,
             },
           },
         ],
@@ -63,6 +50,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.join(SRC, 'index.html'),
     }),
-    new FlowWebpackPlugin(),
+    new ForkTsCheckerWebpackPlugin({
+      eslint: true,
+    }),
   ],
 };
