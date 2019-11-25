@@ -1,7 +1,9 @@
 import {createSlice} from '@reduxjs/toolkit';
 
+const DOMAIN = 'counter';
+
 const counterSlice = createSlice({
-  name: 'counter',
+  name: DOMAIN,
   initialState: 0,
   reducers: {
     inc(state) {
@@ -10,11 +12,12 @@ const counterSlice = createSlice({
     dec(state) {
       return Math.max(0, state - 1);
     },
-    delayInc: state => state,
-    delayDec: state => state,
   },
 });
 
-export const {inc, dec, delayInc, delayDec} = counterSlice.actions;
+export const delayInc = () => ({type: `${DOMAIN}/delayInc`});
+export const delayDec = () => ({type: `${DOMAIN}/delayDec`});
+
+export const {inc, dec} = counterSlice.actions;
 
 export default counterSlice.reducer;

@@ -16,7 +16,7 @@ type Props = {
   inc(): void;
   dec(): void;
 };
-const IndexPage = (props: Props) => {
+export const IndexPage = (props: Props) => {
   const {counter, inc, dec} = props;
   return (
     <main className={cls.main}>
@@ -24,11 +24,13 @@ const IndexPage = (props: Props) => {
       <h1>Create something rad</h1>
       <h2>(or just a tiny counter)</h2>
       <div className={cls.counterContainer}>
-        <button type="button" onClick={dec}>
+        <button type="button" id="dec" onClick={dec}>
           -
         </button>
-        <span className="counter">{counter}</span>
-        <button type="button" onClick={inc}>
+        <span id="counter" className="counter">
+          {counter}
+        </span>
+        <button type="button" id="inc" onClick={inc}>
           +
         </button>
       </div>
