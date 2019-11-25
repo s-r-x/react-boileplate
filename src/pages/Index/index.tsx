@@ -1,27 +1,34 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import {asyncInc, asyncDec} from '@/actions/counter';
+import {delayInc, delayDec} from '@/features/counter/slice';
 import cls from './index.less';
-import reactLogo from '@/images/react.svg';
+
+const mSp = ({counter}: {counter: number}) => ({
+  counter,
+});
+const mDp = (dispatch: Function) => ({
+  inc: () => dispatch(delayInc()),
+  dec: () => dispatch(delayDec()),
+});
 
 type Props = {
   counter: number;
-  asyncDec(e: any): void;
-  asyncInc(e: any): void;
+  inc(): void;
+  dec(): void;
 };
 const IndexPage = (props: Props) => {
-  const {counter, asyncDec, asyncInc} = props;
+  const {counter, inc, dec} = props;
   return (
     <main className={cls.main}>
-      <img src={reactLogo} alt="React logo" />
+      <img src="/images/react.svg" alt="React logo" />
       <h1>Create something rad</h1>
       <h2>(or just a tiny counter)</h2>
       <div className={cls.counterContainer}>
-        <button type="button" onClick={asyncDec}>
+        <button type="button" onClick={dec}>
           -
         </button>
         <span className="counter">{counter}</span>
-        <button type="button" onClick={asyncInc}>
+        <button type="button" onClick={inc}>
           +
         </button>
       </div>
@@ -29,13 +36,6 @@ const IndexPage = (props: Props) => {
   );
 };
 
-const mSp = ({counter}: {counter: number}) => ({
-  counter,
-});
-const mDp = (dispatch: Function) => ({
-  asyncInc: () => dispatch(asyncInc()),
-  asyncDec: () => dispatch(asyncDec()),
-});
 export default connect(
   mSp,
   mDp,

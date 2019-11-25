@@ -1,8 +1,6 @@
-:root {
-  --react-color: #61DAFB;
-  --font-stack: Futura, Helvetica, 'Segoe UI', Roboto, sans-serif;
-  --bg: #1d2323;
-}
+@font-stack: Futura, Helvetica, 'Segoe UI', Roboto, sans-serif;
+@react-color: #61DAFB;
+@bg: #1d2323;
 
 .main {
   display: flex;
@@ -12,8 +10,8 @@
   text-align: center;
   width: 100vw;
   height: 100vh;
-  background-color: var(--bg);
-  font-family: var(--font-stack);
+  background-color: @bg;
+  font-family: @font-stack;
   color: white;
   img {
     width: 150px;
@@ -32,8 +30,8 @@
     margin-bottom: 50px;
   }
   button {
-    color: var(--react-color);
-    outline-color: var(--react-color);
+    color: @react-color;
+    outline-color: @react-color;
   }
 }
 .counterContainer {
