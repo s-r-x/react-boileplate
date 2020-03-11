@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import {delayInc, delayDec} from '@/features/counter/slice';
+import {delayInc, delayDec} from '@/store/counter/slice';
 import cls from './index.less';
 
 const mSp = ({counter}: {counter: number}) => ({

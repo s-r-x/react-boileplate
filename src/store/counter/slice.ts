@@ -1,4 +1,4 @@
-import {createSlice} from '@reduxjs/toolkit';
+import {createSlice, createAction} from '@reduxjs/toolkit';
 
 const DOMAIN = 'counter';
 
@@ -15,8 +15,8 @@ const counterSlice = createSlice({
   },
 });
 
-export const delayInc = () => ({type: `${DOMAIN}/delayInc`});
-export const delayDec = () => ({type: `${DOMAIN}/delayDec`});
+export const delayInc = createAction(`${DOMAIN}/delayInc`);
+export const delayDec = createAction(`${DOMAIN}/delayDec`);
 
 export const {inc, dec} = counterSlice.actions;
 

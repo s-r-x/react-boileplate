@@ -8,7 +8,7 @@ it('should inc/dec', () => {
     dec = jest.fn(() => counter--);
   const wrap = shallow(<IndexPage counter={counter} inc={inc} dec={dec} />);
 
-  expect(wrap.find('#counter').text()).toBe('42');
+  expect(wrap.find('#counter')).toHaveText('42');
 
   wrap.find('#inc').simulate('click');
   wrap.find('#inc').simulate('click');
@@ -17,5 +17,5 @@ it('should inc/dec', () => {
   expect(dec).toHaveBeenCalledTimes(1);
 
   wrap.setProps({counter});
-  expect(wrap.find('#counter').text()).toBe('43');
+  expect(wrap.find('#counter')).toHaveText('43');
 });
