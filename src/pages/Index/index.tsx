@@ -1,9 +1,9 @@
-import * as React from 'react';
-import {connect} from 'react-redux';
-import {delayInc, delayDec} from '@/store/counter/slice';
-import cls from './index.less';
+import * as React from "react";
+import { connect } from "react-redux";
+import { delayInc, delayDec } from "@/store/counter/slice";
+import { Wrap, Counters } from "./styled";
 
-const mSp = ({counter}: {counter: number}) => ({
+const mSp = ({ counter }: { counter: number }) => ({
   counter,
 });
 const mDp = (dispatch: Function) => ({
@@ -17,13 +17,13 @@ type Props = {
   dec(): void;
 };
 export const IndexPage = (props: Props) => {
-  const {counter, inc, dec} = props;
+  const { counter, inc, dec } = props;
   return (
-    <main className={cls.main}>
+    <Wrap>
       <img src="/images/react.svg" alt="React logo" />
       <h1>Create something rad</h1>
       <h2>(or just a tiny counter)</h2>
-      <div className={cls.counterContainer}>
+      <Counters>
         <button type="button" id="dec" onClick={dec}>
           -
         </button>
@@ -33,12 +33,9 @@ export const IndexPage = (props: Props) => {
         <button type="button" id="inc" onClick={inc}>
           +
         </button>
-      </div>
-    </main>
+      </Counters>
+    </Wrap>
   );
 };
 
-export default connect(
-  mSp,
-  mDp,
-)(IndexPage);
+export default connect(mSp, mDp)(IndexPage);

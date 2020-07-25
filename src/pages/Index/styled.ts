@@ -1,8 +1,6 @@
-@font-stack: Futura, Helvetica, 'Segoe UI', Roboto, sans-serif;
-@react-color: #61DAFB;
-@bg: #1d2323;
+import s from 'styled-components';
 
-.main {
+export const Wrap = s.main`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,8 +8,8 @@
   text-align: center;
   width: 100vw;
   height: 100vh;
-  background-color: @bg;
-  font-family: @font-stack;
+  background-color: ${({ theme }) => theme.colors.bg};
+  font-family: ${({ theme }) => theme.font};
   color: white;
   img {
     width: 150px;
@@ -30,13 +28,12 @@
     margin-bottom: 50px;
   }
   button {
-    color: @react-color;
-    outline-color: @react-color;
-  }
-}
-.counterContainer {
+    color: ${({ theme }) => theme.colors.react};
+    outline-color: ${({ theme }) => theme.colors.react};
+`;
+export const Counters = s.div`
   width: 125px;
   justify-content: space-around;
   align-items: center;
   display: flex;
-}
+`;

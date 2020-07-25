@@ -1,7 +1,12 @@
-import '@/styles/index.less';
-import * as React from 'react';
-import Router from '@/containers/Router';
+import React from "react";
+import Router from "@/containers/Router";
+import { GlobalStyle } from "@/styles/Global";
 
-const App = () => <Router />;
+const App = () => (
+  <>
+    <GlobalStyle />
+    <Router />
+  </>
+);
 
 export default App;

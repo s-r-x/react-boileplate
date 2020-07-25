@@ -1,6 +1,6 @@
 dev:
 	npm start
-prod:
+build:
 	npm run build
 test:
 	npm test

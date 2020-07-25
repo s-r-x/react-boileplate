@@ -1,6 +1,6 @@
 import {createSlice, createAction} from '@reduxjs/toolkit';
 
-const DOMAIN = 'counter';
+export const DOMAIN = 'counter';
 
 const counterSlice = createSlice({
   name: DOMAIN,
