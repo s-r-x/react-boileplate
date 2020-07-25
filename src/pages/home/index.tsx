@@ -1,22 +1,8 @@
 import * as React from "react";
-import { connect } from "react-redux";
-import { delayInc, delayDec } from "@/store/counter/slice";
 import { Wrap, Counters } from "./styled";
+import { TProviderProps } from "./container";
 
-const mSp = ({ counter }: { counter: number }) => ({
-  counter,
-});
-const mDp = (dispatch: Function) => ({
-  inc: () => dispatch(delayInc()),
-  dec: () => dispatch(delayDec()),
-});
-
-type Props = {
-  counter: number;
-  inc(): void;
-  dec(): void;
-};
-export const IndexPage = (props: Props) => {
+export const HomePage = (props: TProviderProps) => {
   const { counter, inc, dec } = props;
   return (
     <Wrap>
@@ -38,4 +24,4 @@ export const IndexPage = (props: Props) => {
   );
 };
 
-export default connect(mSp, mDp)(IndexPage);
+export default HomePage;
