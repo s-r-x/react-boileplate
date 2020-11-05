@@ -1,8 +1,8 @@
-import {combineReducers} from 'redux';
-import counter from './counter/slice';
+import { combineReducers } from "redux";
+import counter, { DOMAIN } from "@/domains/counter/store/slice";
 
 const reducer = combineReducers({
-  counter,
+  [DOMAIN]: counter,
 });
 
 export default reducer;

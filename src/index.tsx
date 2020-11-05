@@ -1,19 +1,21 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import App from "@/containers/App.tsx";
 import { Provider } from "react-redux";
 import store from "@/store";
+import Router from "@/Router";
+import { GlobalStyle } from "@/styles/Global";
 import { ThemeProvider } from "styled-components";
 import { theme } from "@/styles/theme";
 import "@/styles/vendor.css";
 
 if (module.hot) module.hot.accept();
-
-ReactDOM.render(
+const App = () => (
   <Provider store={store}>
     <ThemeProvider theme={theme}>
-      <App />
+      <GlobalStyle />
+      <Router />
     </ThemeProvider>
-  </Provider>,
-  document.getElementById("root")
+  </Provider>
 );
+
+ReactDOM.render(<App />, document.getElementById("root"));
