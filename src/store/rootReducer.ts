@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import counter, { DOMAIN } from "@/domains/counter/store/slice";
+import counter, { DOMAIN } from "@/screens/counter/store/slice";
 
 const reducer = combineReducers({
   [DOMAIN]: counter,

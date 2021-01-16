@@ -9,7 +9,8 @@
     "allowJs": true,
     "lib": ["es2018", "dom"],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@testing": ["./src/testing/index.tsx"]
     },
     "outDir": "./dist/",
     "rootDir": ".",
