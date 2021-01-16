@@ -8,6 +8,7 @@ const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const isProd = process.env.NODE_ENV === "production";
 
 module.exports = {
+  target: "web",
   entry: {
     app: path.join(SRC, "index.tsx"),
   },
