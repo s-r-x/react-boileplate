@@ -32,10 +32,8 @@ export const Hero = styled.div`
 `;
 
 export const Button = styled.button`
-  button {
-    color: ${({ theme }) => theme.colors.react};
-    outline-color: ${({ theme }) => theme.colors.react};
-  }
+  color: ${({ theme }) => theme.colors.react};
+  outline-color: ${({ theme }) => theme.colors.react};
 `;
 export const CounterContainer = styled.div`
   width: 125px;

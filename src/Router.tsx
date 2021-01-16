@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
-import Counter from "@/domains/counter/page";
+import Counter from "@/screens/counter";
 
 const Router = () => (
   <BrowserRouter>
@@ -11,4 +11,3 @@ const Router = () => (
 );
 
 export default Router;
-
