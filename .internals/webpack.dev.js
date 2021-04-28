@@ -1,29 +1,23 @@
-const { merge } = require('webpack-merge');
-const common = require('./webpack.common');
-const webpack = require('webpack');
-const notifier = require('./parts/notifier');
-const devServer = require('./parts/devServer');
-const ProgressBarPlugin = require('progress-bar-webpack-plugin');
-const styleLoaders = require('./parts/styleLoaders');
-const { STYLE_REGEX } = require('./constants');
+const { merge } = require("webpack-merge");
+const common = require("./webpack.common");
+const webpack = require("webpack");
+const devServer = require("./parts/devServer");
+const ProgressBarPlugin = require("progress-bar-webpack-plugin");
+const styleLoaders = require("./parts/styleLoaders");
+const { STYLE_REGEX } = require("./constants");
 
 const config = {
-  devtool: 'eval-cheap-module-source-map',
+  devtool: "eval-cheap-module-source-map",
   devServer,
   module: {
     rules: [
       {
         test: STYLE_REGEX,
-        use: [ 'style-loader', ...styleLoaders ]
+        use: ["style-loader", ...styleLoaders],
       },
-
     ],
   },
-  plugins: [                                                                                                                                                           
-    new webpack.HotModuleReplacementPlugin(),
-    notifier,
-    new ProgressBarPlugin()
-  ],
+  plugins: [new webpack.HotModuleReplacementPlugin(), new ProgressBarPlugin()],
 };
 
 module.exports = merge(common, config);
