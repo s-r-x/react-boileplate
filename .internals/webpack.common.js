@@ -29,10 +29,7 @@ module.exports = {
         exclude: /(node_modules|bower_components)/,
         use: [
           {
-            loader: "ts-loader",
-            options: {
-              transpileOnly: true,
-            },
+            loader: "babel-loader",
           },
         ],
       },
@@ -52,6 +49,13 @@ module.exports = {
       template: path.join(SRC, "index.html"),
     }),
     new ForkTsCheckerWebpackPlugin({
+      typescript: {
+        diagnosticOptions: {
+          semantic: true,
+          syntactic: true,
+        },
+        mode: "write-references",
+      },
       eslint: {
         files: "./src/**/*.{ts,tsx,js,jsx}", // required - same as command `eslint ./src/**/*.{ts,tsx,js,jsx} --ext .ts,.tsx,.js,.jsx`
       },
