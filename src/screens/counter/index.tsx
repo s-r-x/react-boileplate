@@ -8,22 +8,22 @@ const CounterTemplate = () => {
   const counter = useSelector(getCounter);
   const dispatch = useDispatch();
   return (
-    <S.Container>
-      <S.Hero>
+    <S.Root>
+      <S.Head>
         <img src="/images/react.svg" alt="React logo" />
         <h1>Create something rad</h1>
         <h2>(or just a tiny counter)</h2>
-      </S.Hero>
-      <S.CounterContainer>
-        <S.Button data-testid="dec" onClick={() => dispatch(dec())}>
+      </S.Head>
+      <S.Main>
+        <button data-testid="dec" onClick={() => dispatch(dec())}>
           -
-        </S.Button>
+        </button>
         <span data-testid="counter">{counter}</span>
-        <S.Button data-testid="inc" onClick={() => dispatch(inc())}>
+        <button data-testid="inc" onClick={() => dispatch(inc())}>
           +
-        </S.Button>
-      </S.CounterContainer>
-    </S.Container>
+        </button>
+      </S.Main>
+    </S.Root>
   );
 };
 

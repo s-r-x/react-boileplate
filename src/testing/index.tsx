@@ -1,17 +1,11 @@
 import React from "react";
-import { theme } from "@/styles/theme";
-import { ThemeProvider } from "styled-components";
 import { render, RenderOptions } from "@testing-library/react";
 import { createStore } from "@/store";
 import { Provider } from "react-redux";
 
 const WithProviders: React.FC = (props) => {
   const store = createStore();
-  return (
-    <Provider store={store}>
-      <ThemeProvider theme={theme}>{props.children}</ThemeProvider>;
-    </Provider>
-  );
+  return <Provider store={store}>{props.children}</Provider>;
 };
 
 const customRender = (

@@ -1,18 +1,25 @@
-import styled from "styled-components";
+import { styled } from "@linaria/react";
 
-export const Container = styled.div`
+export const Root = styled.div`
+  --bg: #1d2323;
+  --react: #61daf8;
+
+  width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  width: 100vw;
-  height: 100vh;
-  background-color: ${({ theme }) => theme.colors.bg};
-  font-family: ${({ theme }) => theme.font};
+  background-color: var(--bg);
+  font-family: Futura, Helvetica, "Segoe UI", Roboto, sans-serif;
   color: white;
+  button {
+    color: var(--react);
+    outline-color: var(--react);
+  }
 `;
-export const Hero = styled.div`
+export const Head = styled.div`
   img {
     width: 150px;
   }
@@ -31,11 +38,7 @@ export const Hero = styled.div`
   }
 `;
 
-export const Button = styled.button`
-  color: ${({ theme }) => theme.colors.react};
-  outline-color: ${({ theme }) => theme.colors.react};
-`;
-export const CounterContainer = styled.div`
+export const Main = styled.main`
   width: 125px;
   justify-content: space-around;
   align-items: center;

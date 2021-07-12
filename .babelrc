@@ -1,4 +1,3 @@
 {
-  "presets": ["@babel/typescript", "@babel/preset-react"],
-  "plugins": [["styled-components", { "ssr": false }]]
+  "presets": ["@babel/typescript", "@babel/preset-react", "@linaria"]
 }

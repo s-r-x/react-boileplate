@@ -3,19 +3,13 @@ import * as ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { createStore } from "@/store";
 import Router from "@/Router";
-import { GlobalStyle } from "@/styles/Global";
-import { ThemeProvider } from "styled-components";
-import { theme } from "@/styles/theme";
-import "@/styles/vendor.css";
+import "@/styles/index.css";
 
 const store = createStore();
 if (module.hot) module.hot.accept();
 const App = () => (
   <Provider store={store}>
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Router />
-    </ThemeProvider>
+    <Router />
   </Provider>
 );
 

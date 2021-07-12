@@ -31,6 +31,12 @@ module.exports = {
           {
             loader: "babel-loader",
           },
+          {
+            loader: "@linaria/webpack-loader",
+            options: {
+              sourceMap: process.env.NODE_ENV !== "production",
+            },
+          },
         ],
       },
       {
