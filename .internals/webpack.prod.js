@@ -8,6 +8,10 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const BundleAnalyzerPlugin =
+  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+
+const shouldRunAnalyzer = process.env.RUN_WEBPACK_ANALYZER === "true";
 
 const config = {
   devtool: false,
@@ -35,7 +39,8 @@ const config = {
       ],
     }),
     new CleanWebpackPlugin(),
-  ],
+    shouldRunAnalyzer && new BundleAnalyzerPlugin(),
+  ].filter(Boolean),
   optimization: {
     minimize: true,
     splitChunks: {
