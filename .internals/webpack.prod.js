@@ -1,6 +1,5 @@
 const { merge } = require("webpack-merge");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const ProgressBarPlugin = require("progress-bar-webpack-plugin");
 const styleLoaders = require("./parts/styleLoaders");
 const common = require("./webpack.common");
 const { STYLE_REGEX, DST, ASSETS_PATH } = require("./constants");
@@ -29,7 +28,6 @@ const config = {
       filename: "[name].[contenthash:8].css",
       chunkFilename: "[name].[contenthash:8].css",
     }),
-    new ProgressBarPlugin(),
     new CopyPlugin({
       patterns: [
         {

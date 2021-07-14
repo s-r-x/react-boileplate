@@ -4,6 +4,7 @@ const { FILE_REGEX } = require("./constants");
 const { SRC, DST } = require("./constants");
 const alias = require("./aliases");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
+const WebpackBar = require("webpackbar");
 
 const isProd = process.env.NODE_ENV === "production";
 const isDev = !isProd;
@@ -71,6 +72,9 @@ module.exports = {
       eslint: {
         files: "./src/**/*.{ts,tsx,js,jsx}", // required - same as command `eslint ./src/**/*.{ts,tsx,js,jsx} --ext .ts,.tsx,.js,.jsx`
       },
+    }),
+    new WebpackBar({
+      color: "#673AB7",
     }),
   ],
 };
