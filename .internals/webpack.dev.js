@@ -5,6 +5,7 @@ const devServer = require("./parts/devServer");
 const ProgressBarPlugin = require("progress-bar-webpack-plugin");
 const styleLoaders = require("./parts/styleLoaders");
 const { STYLE_REGEX } = require("./constants");
+const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 
 const config = {
   devtool: "eval-cheap-module-source-map",
@@ -17,7 +18,11 @@ const config = {
       },
     ],
   },
-  plugins: [new webpack.HotModuleReplacementPlugin(), new ProgressBarPlugin()],
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new ProgressBarPlugin(),
+    new ReactRefreshWebpackPlugin(),
+  ],
 };
 
 module.exports = merge(common, config);

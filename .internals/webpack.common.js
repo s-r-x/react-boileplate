@@ -6,6 +6,7 @@ const alias = require("./aliases");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 
 const isProd = process.env.NODE_ENV === "production";
+const isDev = !isProd;
 
 module.exports = {
   target: "web",
@@ -30,11 +31,16 @@ module.exports = {
         use: [
           {
             loader: "babel-loader",
+            options: {
+              plugins: [isDev && require.resolve("react-refresh/babel")].filter(
+                Boolean
+              ),
+            },
           },
           {
             loader: "@linaria/webpack-loader",
             options: {
-              sourceMap: process.env.NODE_ENV !== "production",
+              sourceMap: isDev,
             },
           },
         ],
