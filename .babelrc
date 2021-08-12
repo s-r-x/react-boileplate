@@ -1,3 +1,12 @@
 {
-  "presets": ["@babel/typescript", "@babel/preset-react", "@linaria"]
+  "presets": [
+    "@babel/typescript",
+    [
+      "@babel/preset-react",
+      {
+        "runtime": "automatic"
+      }
+    ],
+    "@linaria"
+  ]
 }

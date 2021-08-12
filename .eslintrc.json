@@ -12,7 +12,9 @@
     "@typescript-eslint/no-var-requires": 0,
     "@typescript-eslint/no-use-before-define": 0,
     "@typescript-eslint/no-empty-interface": 0,
-    "react/prop-types": 0
+    "react/prop-types": 0,
+    "react/jsx-uses-react": 0,
+    "react/react-in-jsx-scope": 0
   },
   "plugins": ["@typescript-eslint"],
   "parser": "@typescript-eslint/parser",

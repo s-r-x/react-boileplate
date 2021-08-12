@@ -9,7 +9,6 @@
     "build": "NODE_ENV=production webpack --mode=production --config .internals/webpack.prod.js",
     "analyze": "NODE_ENV=production RUN_WEBPACK_ANALYZER=true webpack --mode=production --config .internals/webpack.prod.js",
     "test": "NODE_ENV=test jest",
-    "postinstall": "rm -rf node_modules/@types/react-native",
     "test-watch": "NODE_ENV=test jest --watch"
   },
   "keywords": [],
