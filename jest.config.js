@@ -5,5 +5,6 @@ module.exports = {
   moduleNameMapper: {
     "@/(.*)$": "<rootDir>/src/$1",
     "@testing$": "<rootDir>/src/testing/index.tsx",
+    "\\.(css|less)$": "identity-obj-proxy"
   },
 };

@@ -8,6 +8,7 @@
     "jsx": "react-jsx",
     "allowJs": true,
     "lib": ["es2018", "dom"],
+    "plugins": [{ "name": "typescript-plugin-css-modules" }],
     "paths": {
       "@/*": ["./src/*"],
       "@testing": ["./src/testing/index.tsx"]

@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import ReactDOM from "react-dom";
 import Router from "@/Router";
-import "@/styles/index.css";
+import "@/styles/index.less";
 
 if (module.hot) module.hot.accept();
 const App = () => <Router />;

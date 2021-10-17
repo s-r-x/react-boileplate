@@ -13,8 +13,9 @@ const config = {
     rules: [
       {
         test: STYLE_REGEX,
-        use: ["style-loader", ...styleLoaders],
+        use: [ 'style-loader', ...styleLoaders ]
       },
+
     ],
   },
   plugins: [

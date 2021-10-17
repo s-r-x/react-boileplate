@@ -38,12 +38,6 @@ module.exports = {
               ),
             },
           },
-          {
-            loader: "@linaria/webpack-loader",
-            options: {
-              sourceMap: isDev,
-            },
-          },
         ],
       },
       {

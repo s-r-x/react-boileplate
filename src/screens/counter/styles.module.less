@@ -1,6 +1,4 @@
-import { styled } from "@linaria/react";
-
-export const Root = styled.div`
+.root {
   --bg: #1d2323;
   --react: #61daf8;
 
@@ -18,8 +16,6 @@ export const Root = styled.div`
     color: var(--react);
     outline-color: var(--react);
   }
-`;
-export const Head = styled.div`
   img {
     width: 150px;
   }
@@ -36,11 +32,10 @@ export const Head = styled.div`
     margin-top: 3px;
     font-size: 16px;
   }
-`;
-
-export const Main = styled.main`
-  width: 125px;
-  justify-content: space-around;
-  align-items: center;
-  display: flex;
-`;
+  main {
+    width: 125px;
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+  }
+}
