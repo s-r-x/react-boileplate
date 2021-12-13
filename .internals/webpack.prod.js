@@ -41,18 +41,6 @@ const config = {
   ].filter(Boolean),
   optimization: {
     minimize: true,
-    splitChunks: {
-      cacheGroups: {
-        commons: {
-          test: /[\\/]node_modules[\\/]/,
-          name: "vendor",
-          chunks: "initial",
-        },
-      },
-    },
-    runtimeChunk: {
-      name: "manifest",
-    },
     minimizer: [new TerserPlugin(), new CssMinimizerPlugin()],
   },
 };
