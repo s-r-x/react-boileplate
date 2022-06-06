@@ -3,7 +3,7 @@
     "sourceMap": true,
     "noImplicitAny": true,
     "esModuleInterop": true,
-    "module": "ESNext",
+    "module": "commonjs",
     "target": "es5",
     "jsx": "react-jsx",
     "allowJs": true,

@@ -1,27 +1,25 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { FILE_REGEX } = require("./constants");
-const { SRC, DST } = require("./constants");
-const alias = require("./aliases");
-const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
-const WebpackBar = require("webpackbar");
+import path from "path";
+import HtmlWebpackPlugin from "html-webpack-plugin";
+import { FILE_REGEX } from "./constants";
+import { SRC, DST, IS_PROD, IS_DEV } from "./constants";
+import { aliases } from "./aliases";
+import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
+import WebpackBar from "webpackbar";
+import type { Configuration } from "webpack";
 
-const isProd = process.env.NODE_ENV === "production";
-const isDev = !isProd;
-
-module.exports = {
+const config: Configuration = {
   target: "web",
   entry: {
     app: path.join(SRC, "index.tsx"),
   },
   output: {
-    filename: isProd ? "[name].[chunkhash:8].js" : "[name].js",
-    chunkFilename: isProd ? "[name].[chunkhash:8].js" : "[id].js",
+    filename: IS_PROD ? "[name].[chunkhash:8].js" : "[name].js",
+    chunkFilename: IS_PROD ? "[name].[chunkhash:8].js" : "[id].js",
 
     path: DST,
   },
   resolve: {
-    alias,
+    alias: aliases,
     extensions: [".ts", ".tsx", ".js"],
   },
   module: {
@@ -33,9 +31,9 @@ module.exports = {
           {
             loader: "babel-loader",
             options: {
-              plugins: [isDev && require.resolve("react-refresh/babel")].filter(
-                Boolean
-              ),
+              plugins: [
+                IS_DEV && require.resolve("react-refresh/babel"),
+              ].filter(Boolean),
             },
           },
         ],
@@ -72,3 +70,5 @@ module.exports = {
     }),
   ],
 };
+
+export default config;
